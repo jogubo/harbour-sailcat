@@ -3,6 +3,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QRegularExpression>
 #include <QSslConfiguration>
 #include <QSslSocket>
 #include <QDebug>
@@ -675,8 +676,10 @@ void MistralAPI::onModelsFetchFinished()
         bool vision = false;
 
         if (modelSource == Providers::MistralCatalogue) {
-            // Keep only current chat models; dated aliases add noise
-            if (!caps["completion_chat"].toBool() || !id.endsWith("-latest")) {
+            // Keep only current chat models; dated snapshots add noise, but
+            // some new models ship under an undated id with no -latest alias
+            static const QRegularExpression datedSuffix("-\\d{4}$");
+            if (!caps["completion_chat"].toBool() || id.contains(datedSuffix)) {
                 continue;
             }
             vision = caps["vision"].toBool();

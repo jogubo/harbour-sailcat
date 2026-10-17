@@ -26,18 +26,23 @@ struct ModelPrice {
 // specific match to the least so "pixtral-large" does not resolve as "pixtral".
 const ModelPrice PRICES[] = {
     { "pixtral-large",     2.00, 6.00 },
-    { "mistral-large",     2.00, 6.00 },
+    { "mistral-large-4",   1.36, 4.18 },
+    { "mistral-large",     0.50, 1.50 },
     { "magistral-medium",  2.00, 5.00 },
-    { "mistral-medium",    0.40, 2.00 },
+    { "mistral-medium",    1.50, 7.50 },
     { "magistral-small",   0.50, 1.50 },
     { "codestral",         0.30, 0.90 },
     { "devstral",          0.10, 0.30 },
-    { "mistral-small",     0.10, 0.30 },
+    { "mistral-small",     0.15, 0.60 },
+    { "ministral-3-14b",   0.20, 0.20 },
+    { "ministral-3-8b",    0.15, 0.15 },
+    { "ministral-3-3b",    0.10, 0.10 },
     { "ministral-8b",      0.10, 0.10 },
     { "ministral-3b",      0.04, 0.04 },
     { "pixtral",           0.15, 0.15 },
     { "nemo",              0.15, 0.15 },
-    { "mistral-saba",      0.20, 0.60 }
+    { "mistral-saba",      0.20, 0.60 },
+    { "zai-glm",           1.40, 4.40 }
 };
 
 const int PRICE_COUNT = int(sizeof(PRICES) / sizeof(PRICES[0]));

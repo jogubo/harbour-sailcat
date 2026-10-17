@@ -1225,13 +1225,15 @@ private slots:
     {
         SettingsManager settings;
 
-        // 1M in + 1M out on the large model, at 2.00 / 6.00 per million
+        // 1M in + 1M out on the large model, at 0.50 / 1.50 per million
         double cost = settings.estimatedCost("mistral-large-latest", 1000000, 1000000);
-        QVERIFY(qAbs(cost - 8.0) < 0.0001);
+        QVERIFY(qAbs(cost - 2.0) < 0.0001);
 
         // The more specific entry wins over the "pixtral" prefix
         QCOMPARE(settings.modelPricing("pixtral-large-latest")["output"].toDouble(), 6.00);
         QCOMPARE(settings.modelPricing("pixtral-12b-latest")["output"].toDouble(), 0.15);
+        QCOMPARE(settings.modelPricing("mistral-large-4")["input"].toDouble(), 1.36);
+        QCOMPARE(settings.modelPricing("ministral-3-8b-2512")["input"].toDouble(), 0.15);
 
         // Unknown model: no invented number
         QVERIFY(!settings.modelPricing("some-future-model")["known"].toBool());
