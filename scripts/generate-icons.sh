@@ -1,15 +1,15 @@
 #!/bin/bash
-# Generate app icon PNGs from harbour-sailcat.svg.
+# Generate app icon PNGs from icons/harbour-sailcat.svg.
 # Sizes must match SAILFISHAPP_ICONS in harbour-sailcat.pro.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-SVG="harbour-sailcat.svg"
+SVG="icons/harbour-sailcat.svg"
 SIZES="86 108 128 172"
 
 if [ ! -f "$SVG" ]; then
-    echo "Error: $SVG not found in repository root" >&2
+    echo "Error: $SVG not found" >&2
     exit 1
 fi
 

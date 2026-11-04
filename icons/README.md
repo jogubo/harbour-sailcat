@@ -20,6 +20,10 @@ L'icône devrait représenter un chat (cat) dans le style de Sailfish OS, avec d
 
 ## Génération
 
-Vous pouvez créer vos icônes avec des outils comme GIMP, Inkscape, ou tout autre éditeur graphique.
+La source vectorielle est `harbour-sailcat.svg` à la racine de ce dossier. Pour régénérer les PNG :
 
-Pour l'instant, l'application utilise l'icône par défaut `icon-l-chat` fournie par Sailfish Silica.
+```bash
+scripts/generate-icons.sh
+```
+
+Le script utilise `rsvg-convert`, `inkscape` ou ImageMagick. Le SVG peut aussi être édité avec GIMP, Inkscape ou tout autre éditeur graphique.
